@@ -12,12 +12,13 @@ public class MovieService {
 
     @Autowired
     private MovieRepository movieRepository;
+
     public List<Movie> allMovies(){
 
         return movieRepository.findAll();
     }
-    public Optional<Movie> singleMovie(ObjectId id){
+    public Optional<Movie> singleMovie(String imdbId){
 
-        return movieRepository.findById(id);
+        return movieRepository.findMovieByImdbId(imdbId);
     }
 }
